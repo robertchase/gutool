@@ -38,16 +38,16 @@ func (t *tokenizer) nextLine() error {
 
 	if t.input.Scan() {
 		t.currentLine = t.input.Text()
-        t.line = t.line[0:0]
+		t.line = t.line[0:0]
 		trimmed := strings.Trim(t.currentLine, " \t")
 		if len(trimmed) == 0 {
 			t.isParagraph = true
 		} else {
-            wordScanner := bufio.NewScanner(strings.NewReader(trimmed))
-            wordScanner.Split(bufio.ScanWords)
-            for wordScanner.Scan() {
-                t.line = append(t.line, wordScanner.Text())
-            }
+			wordScanner := bufio.NewScanner(strings.NewReader(trimmed))
+			wordScanner.Split(bufio.ScanWords)
+			for wordScanner.Scan() {
+				t.line = append(t.line, wordScanner.Text())
+			}
 		}
 	} else {
 		if err := t.input.Err(); err != nil {

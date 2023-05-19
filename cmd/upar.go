@@ -1,10 +1,10 @@
 package main
 
 import (
-    "os"
-    "github.com/robertchase/gutool/cli/upar"
+	"github.com/robertchase/gutool/cli/upar"
+	"os"
 )
 
 func main() {
-    os.Exit(cli.CLI(os.Args[1:]))
+	os.Exit(cli.CLI(os.Args[1:]))
 }
