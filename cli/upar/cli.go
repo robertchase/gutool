@@ -28,8 +28,8 @@ func CLI(args []string) int {
 
 func (app *appEnv) fromArgs(args []string) error {
     fl := flag.NewFlagSet("upar", flag.ContinueOnError)
-    fl.IntVar(&app.width, "width", 80, "max width of line")
-    fl.IntVar(&app.indent, "indent", -1, "left indent")
+    fl.IntVar(&app.width, "w", 80, "max width of line")
+    fl.IntVar(&app.indent, "i", -1, "left indent")
     if err := fl.Parse(args); err != nil {
         return err
     }
